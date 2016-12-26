@@ -9,19 +9,19 @@ UIButton subclass with augmented functionality
 
 ## Installation
 
-#### Via CocoaPods
+#### Via [CocoaPods](http://cocoapods.org)
  
-The easiest way to install **AugmentedButton** is via [CocoaPods](http://cocoapods.org). Add this line to your Podfile:
- 
+The easiest way to install **AugmentedButton** is via CocoaPods. 
+
+1. Add this line to your Podfile:
 ```ruby
 pod 'AugmentedButton'
 ```
+2. Run `pod install`. 
 
-and run `pod install`. 
+#### Via [Carthage](https://github.com/Carthage/Carthage)
 
-#### Via Carthage
-
-You can use [Carthage](https://github.com/Carthage/Carthage) to install **AugmentedButton**.
+To install **AugmentedButton** using Carthage.
 
 1. Add the following to your *Cartfile*:
 ```ruby
