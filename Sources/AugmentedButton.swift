@@ -73,6 +73,7 @@ class AugmentedButton: UIButton {
         
         setActions(actions, named: key, forState: state)
         
+        // Set value for .normal state if none exist.
         if state != .normal && self.state == .normal {
             guard try valueForKey(key, forState: .normal) == nil else { return }
 
