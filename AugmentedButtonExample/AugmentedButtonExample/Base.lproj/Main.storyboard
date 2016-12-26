@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AugmentedButtonExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="umX-VQ-END" customClass="AugmentedButton" customModule="AugmentedButton">
+                                <rect key="frame" x="87" y="311.5" width="200" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="9mw-uG-Lk5"/>
+                                    <constraint firstAttribute="height" constant="44" id="Wvw-Eu-aqX"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gw5-en-1WO" customClass="AugmentedButton" customModule="AugmentedButton">
+                                <rect key="frame" x="87.5" y="405.5" width="200" height="44"/>
+                                <state key="normal" image="bug"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="umX-VQ-END" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P4l-IV-MB4"/>
+                            <constraint firstItem="umX-VQ-END" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="SPz-fA-afb"/>
+                            <constraint firstItem="Gw5-en-1WO" firstAttribute="top" secondItem="umX-VQ-END" secondAttribute="bottom" constant="50" id="eTO-i1-zGN"/>
+                            <constraint firstItem="Gw5-en-1WO" firstAttribute="width" secondItem="umX-VQ-END" secondAttribute="width" id="etg-ud-hzQ"/>
+                            <constraint firstItem="Gw5-en-1WO" firstAttribute="height" secondItem="umX-VQ-END" secondAttribute="height" id="nbx-Pz-HSR"/>
+                            <constraint firstItem="Gw5-en-1WO" firstAttribute="centerX" secondItem="umX-VQ-END" secondAttribute="centerX" id="taP-cd-gfD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="umX-VQ-END" id="HLZ-6V-o0i"/>
+                        <outlet property="button2" destination="Gw5-en-1WO" id="Dbc-SD-JSW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bug" width="25" height="25"/>
+    </resources>
+</document>

@@ -1,0 +1,16 @@
+PODS:
+  - AugmentedButton (1.0.0)
+
+DEPENDENCIES:
+  - AugmentedButton (from `../`)
+
+EXTERNAL SOURCES:
+  AugmentedButton:
+    :path: ../
+
+SPEC CHECKSUMS:
+  AugmentedButton: 6674dec405eef3618476b1202b76513b298b960a
+
+PODFILE CHECKSUM: a55eb33641cda07a511693d9a7a0fd9f6f30a4a3
+
+COCOAPODS: 1.1.1
