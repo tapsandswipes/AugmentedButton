@@ -1,4 +1,6 @@
-# AugmentedButton [![CocoaPods](https://img.shields.io/cocoapods/v/AugmentedButton.svg)]()
+[![CocoaPods](https://img.shields.io/cocoapods/v/AugmentedButton.svg)]() [![CocoaPods](https://img.shields.io/cocoapods/p/AugmentedButton.svg)]() [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
+# AugmentedButton 
 UIButton subclass with augmented functionality
 
 ## Provided API
