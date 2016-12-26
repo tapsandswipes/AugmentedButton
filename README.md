@@ -37,7 +37,7 @@ func currentValueForKey(_ key: String) throws -> AnyObject?
 func setActions(_ block: @escaping (AugmentedButton) -> Void, named name: String? = default, forState state: UIControlState)
 ```
 
-Always add actions for `.normal` state if you want them to be reset
+Always set actions for `.normal` state if you want them to be reset
 
 
 ## Requirements
