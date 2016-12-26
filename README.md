@@ -1,6 +1,39 @@
 # AugmentedButton
 UIButton subclass with augmented functionality
 
+## Provided API
+
+#### New setters for states
+
+- **backgroundColor**
+- **tintColor**
+- **borderColor**
+- **borderWidth**
+- **cornerRadius**
+
+Each property has its own APIs in the form: 
+
+```swift
+func setXxx(_ color: UIColor?, forState state: UIControlState)
+func xxxForState(_ state: UIControlState) -> UIColor?
+func currentXxx() -> UIColor?
+```
+
+#### Set any button property for any button state
+
+New API to set any property supported by UIButton for any state
+
+```swift
+func setValue(_ value: AnyObject?, forKey key: String, forState state: UIControlState) throws
+func valueForKey(_ key: String, forState state: UIControlState) throws -> AnyObject?
+func currentValueForKey(_ key: String) throws -> AnyObject?
+````
+
+#### Apply a group of actions for any button state
+
+```swift
+func setActions(_ block: @escaping (AugmentedButton) -> Void, named name: String? = default, forState state: UIControlState)
+```
 
 ## Requirements
 
