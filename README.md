@@ -1,4 +1,4 @@
-[![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)]() [![CocoaPods](https://img.shields.io/cocoapods/v/AugmentedButton.svg)]() [![CocoaPods](https://img.shields.io/cocoapods/p/AugmentedButton.svg)]() [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)]() [![Language](http://img.shields.io/badge/language-swift-orange.svg?style=flat)](https://developer.apple.com/swift) [![CocoaPods](https://img.shields.io/cocoapods/v/AugmentedButton.svg)]() [![CocoaPods](https://img.shields.io/cocoapods/p/AugmentedButton.svg)]() [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 # AugmentedButton 
 UIButton subclass with augmented functionality
