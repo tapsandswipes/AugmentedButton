@@ -23,17 +23,17 @@ extension AugmentedButton {
     
     public
     func setBorderColor(_ color: UIColor?, forState state: UIControlState) {
-        setActions( { $0.borderColor = color }, named: "borderColor", forState: state)
+        try! setValue(color, forKey: "borderColor", forState: state)
     }
     
     public
     func setBorderWidth(_ width: CGFloat, forState state: UIControlState) {
-        setActions( { $0.borderWidth = width }, named: "borderWidth", forState: state)
+        try! setValue(width, forKey: "borderWidth", forState: state)
     }
     
     public
     func setCornerRadius(_ radius: CGFloat, forState state: UIControlState) {
-        setActions( { $0.cornerRadius = radius }, named: "cornerRadius", forState: state)
+        try! setValue(radius, forKey: "cornerRadius", forState: state)
     }
     
     public
