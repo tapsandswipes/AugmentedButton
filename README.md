@@ -14,9 +14,9 @@ UIButton subclass with augmented functionality
 Each property has its own APIs in the form: 
 
 ```swift
-func setXxx(_ color: UIColor?, forState state: UIControlState)
-func xxxForState(_ state: UIControlState) -> UIColor?
-func currentXxx() -> UIColor?
+func setXxx(_ value: Value?, forState state: UIControlState)
+func xxxForState(_ state: UIControlState) -> Value?
+func currentXxx() -> Value?
 ```
 
 #### Set any button property for any button state
