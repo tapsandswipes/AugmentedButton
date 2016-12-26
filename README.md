@@ -31,10 +31,20 @@ github "tapsandswipes/AugmentedButton"
 3. Add the framework as described in [Carthage Readme](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application)
 
 
-#### Via Swift Package Manager
+#### Via [Swift Package Manager](https://github.com/apple/swift-package-manager)
 
+1. Add `.Package(url: "https://github.com/tapsandswipes/AugmentedButton.git", "1.0.0")` to your `Package.swift` inside `dependencies`:
+```swift
+import PackageDescription
 
-
+let package = Package(
+	name: "yourapp",
+	dependencies: [
+		.Package(url: "https://github.com/tapsandswipes/AugmentedButton.git", "1.0.0")
+ 	]
+)
+```
+2. Run `swift build`.
  
  
 #### Manual
