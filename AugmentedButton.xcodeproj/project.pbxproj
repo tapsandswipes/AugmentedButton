@@ -13,7 +13,7 @@
 		A9F2B7941E103FCB0029A2E3 /* UIControl+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F2B7901E103FCB0029A2E3 /* UIControl+Extensions.swift */; };
 		A9F2B7951E103FCB0029A2E3 /* AugmentedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F2B7911E103FCB0029A2E3 /* AugmentedButton.swift */; };
 		A9F2B7961E103FCB0029A2E3 /* AugmentedButton+StateValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F2B7921E103FCB0029A2E3 /* AugmentedButton+StateValues.swift */; };
-		A9F2B7971E103FCB0029A2E3 /* UIView+LayerAccessors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F2B7931E103FCB0029A2E3 /* UIView+LayerAccessors.swift */; };
+		A9F2B7971E103FCB0029A2E3 /* UIView+LayerProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F2B7931E103FCB0029A2E3 /* UIView+LayerProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,7 @@
 		A9F2B7901E103FCB0029A2E3 /* UIControl+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIControl+Extensions.swift"; path = "Sources/UIControl+Extensions.swift"; sourceTree = SOURCE_ROOT; };
 		A9F2B7911E103FCB0029A2E3 /* AugmentedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = AugmentedButton.swift; path = Sources/AugmentedButton.swift; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A9F2B7921E103FCB0029A2E3 /* AugmentedButton+StateValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = "AugmentedButton+StateValues.swift"; path = "Sources/AugmentedButton+StateValues.swift"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		A9F2B7931E103FCB0029A2E3 /* UIView+LayerAccessors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+LayerAccessors.swift"; path = "Sources/UIView+LayerAccessors.swift"; sourceTree = SOURCE_ROOT; };
+		A9F2B7931E103FCB0029A2E3 /* UIView+LayerProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+LayerProperties.swift"; path = "Sources/UIView+LayerProperties.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +82,7 @@
 				A9F2B7911E103FCB0029A2E3 /* AugmentedButton.swift */,
 				A9F2B7921E103FCB0029A2E3 /* AugmentedButton+StateValues.swift */,
 				A9F2B7901E103FCB0029A2E3 /* UIControl+Extensions.swift */,
-				A9F2B7931E103FCB0029A2E3 /* UIView+LayerAccessors.swift */,
+				A9F2B7931E103FCB0029A2E3 /* UIView+LayerProperties.swift */,
 				A9F2B7791E103EB90029A2E3 /* AugmentedButton.h */,
 				A9F2B77A1E103EB90029A2E3 /* Info.plist */,
 			);
@@ -214,7 +214,7 @@
 			files = (
 				A9F2B7941E103FCB0029A2E3 /* UIControl+Extensions.swift in Sources */,
 				A9F2B7961E103FCB0029A2E3 /* AugmentedButton+StateValues.swift in Sources */,
-				A9F2B7971E103FCB0029A2E3 /* UIView+LayerAccessors.swift in Sources */,
+				A9F2B7971E103FCB0029A2E3 /* UIView+LayerProperties.swift in Sources */,
 				A9F2B7951E103FCB0029A2E3 /* AugmentedButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
