@@ -219,18 +219,19 @@ class AugmentedButtonTests: XCTestCase {
     }
     
     func testNormalValues() {
-        sut.setBorderWidth(33, forState: .highlighted)
+        sut.borderWidth = 1
+        sut.setBorderWidth(3, forState: .highlighted)
         
-        XCTAssertEqual(sut.currentBorderWidth(), 0)
-        XCTAssertEqual(sut.borderWidthForState(.highlighted), 33)
+        XCTAssertEqual(sut.currentBorderWidth(), 1)
+        XCTAssertEqual(sut.borderWidthForState(.highlighted), 3)
         
         sut.isHighlighted = true
         
-        XCTAssertEqual(sut.currentBorderWidth(), 33)
+        XCTAssertEqual(sut.currentBorderWidth(), 3)
 
         sut.isHighlighted = false
         
-        XCTAssertEqual(sut.currentBorderWidth(), 0)
+        XCTAssertEqual(sut.currentBorderWidth(), 1)
     }
     
 }
