@@ -58,7 +58,7 @@ class AugmentedButton: UIButton {
     var stateBlocks: [UIControlState: [String:[Actions]]] = [:]
     
     public
-    func setValue(_ value: AnyObject?, forKey key: String, forState state: UIControlState) throws {
+    func setValue(_ value: Any?, forKey key: String, forState state: UIControlState) throws {
         guard responds(to: Selector(key)) else {
             throw AugmentedButtonError.undefinedKey
         }
@@ -75,7 +75,7 @@ class AugmentedButton: UIButton {
     }
     
     public
-    func valueForKey(_ key: String, forState state: UIControlState) throws -> AnyObject? {
+    func valueForKey(_ key: String, forState state: UIControlState) throws -> Any? {
         guard responds(to: Selector(key)) else {
             throw AugmentedButtonError.undefinedKey
         }
@@ -86,11 +86,11 @@ class AugmentedButton: UIButton {
         
         block(b)
         
-        return b.value(forKey: key) as AnyObject?
+        return b.value(forKey: key) as Any?
     }
     
     public
-    func currentValueForKey(_ key: String) throws -> AnyObject? {
+    func currentValueForKey(_ key: String) throws -> Any? {
         return try valueForKey(key, forState: state)
     }
 }
