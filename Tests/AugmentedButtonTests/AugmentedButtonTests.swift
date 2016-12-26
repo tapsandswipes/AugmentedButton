@@ -22,6 +22,7 @@ class AugmentedButtonTests: XCTestCase {
             ("testActionsRemoval", testActionsRemoval),
             ("testCurrentValues", testCurrentValues),
             ("testCustomProperties", testCustomProperties),
+            ("testNormalValues", testNormalValues),
         ]
     }
 
@@ -214,9 +215,22 @@ class AugmentedButtonTests: XCTestCase {
         sut.isSelected = true
         XCTAssertEqual(sut.currentCornerRadius(), 0)
         XCTAssertEqual(sut.currentBorderWidth(), 0)
+        
+    }
+    
+    func testNormalValues() {
+        sut.setBorderWidth(33, forState: .highlighted)
+        
+        XCTAssertEqual(sut.currentBorderWidth(), 0)
+        XCTAssertEqual(sut.borderWidthForState(.highlighted), 33)
+        
+        sut.isHighlighted = true
+        
+        XCTAssertEqual(sut.currentBorderWidth(), 33)
 
+        sut.isHighlighted = false
         
-        
+        XCTAssertEqual(sut.currentBorderWidth(), 0)
     }
     
 }
