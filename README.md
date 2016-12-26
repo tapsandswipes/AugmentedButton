@@ -1,4 +1,4 @@
-# AugmentedButton
+# AugmentedButton [![CocoaPods](https://img.shields.io/cocoapods/v/AugmentedButton.svg)]()
 UIButton subclass with augmented functionality
 
 ## Provided API
