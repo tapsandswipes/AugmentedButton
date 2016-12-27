@@ -71,14 +71,14 @@ github "tapsandswipes/AugmentedButton"
 
 #### Via [Swift Package Manager](https://github.com/apple/swift-package-manager)
 
-1. Add `.Package(url: "https://github.com/tapsandswipes/AugmentedButton.git", "1.0.0")` to your `Package.swift` inside `dependencies`:
+1. Add `.Package(url: "https://github.com/tapsandswipes/AugmentedButton.git", "1.0.1")` to your `Package.swift` inside `dependencies`:
 ```swift
 import PackageDescription
 
 let package = Package(
 	name: "yourapp",
 	dependencies: [
-		.Package(url: "https://github.com/tapsandswipes/AugmentedButton.git", "1.0.0")
+		.Package(url: "https://github.com/tapsandswipes/AugmentedButton.git", "1.0.1")
  	]
 )
 ```
