@@ -11,77 +11,77 @@ import UIKit
 
 extension AugmentedButton {
     
-    public
+    open
     func setBackgroundColor(_ color: UIColor?, forState state: UIControlState) {
         try! setValue(color, forKey: "backgroundColor", forState: state)
     }
     
-    public
+    open
     func setTintColor(_ color: UIColor?, forState state: UIControlState) {
         try! setValue(color, forKey: "tintColor", forState: state)
     }
     
-    public
+    open
     func setBorderColor(_ color: UIColor?, forState state: UIControlState) {
         try! setValue(color, forKey: "borderColor", forState: state)
     }
     
-    public
+    open
     func setBorderWidth(_ width: CGFloat, forState state: UIControlState) {
         try! setValue(width, forKey: "borderWidth", forState: state)
     }
     
-    public
+    open
     func setCornerRadius(_ radius: CGFloat, forState state: UIControlState) {
         try! setValue(radius, forKey: "cornerRadius", forState: state)
     }
     
-    public
+    open
     func backgroundColorForState(_ state: UIControlState) -> UIColor? {
         return try! valueForKey("backgroundColor", forState: state) as? UIColor
     }
     
-    public
+    open
     func tintColorForState(_ state: UIControlState) -> UIColor? {
         return try! valueForKey("tintColor", forState: state) as? UIColor
     }
     
-    public
+    open
     func borderColorForState(_ state: UIControlState) -> UIColor? {
         return try! valueForKey("borderColor", forState: state) as? UIColor
     }
     
-    public
+    open
     func borderWidthForState(_ state: UIControlState) -> CGFloat {
         return (try! valueForKey("borderWidth", forState: state) as? CGFloat) ?? 0
     }
     
-    public
+    open
     func cornerRadiusForState(_ state: UIControlState) -> CGFloat {
         return (try! valueForKey("cornerRadius", forState: state) as? CGFloat) ?? 0
     }
     
-    public
+    open
     func currentBackgroundColor() -> UIColor? {
         return try! currentValueForKey("backgroundColor") as? UIColor
     }
     
-    public
+    open
     func currentTintColor() -> UIColor? {
         return try! currentValueForKey("tintColor") as? UIColor
     }
     
-    public
+    open
     func currentBorderColor() -> UIColor? {
         return try! currentValueForKey("borderColor") as? UIColor
     }
     
-    public
+    open
     func currentBorderWidth() -> CGFloat {
         return (try! currentValueForKey("borderWidth") as? CGFloat) ?? 0
     }
 
-    public
+    open
     func currentCornerRadius() -> CGFloat {
         return (try! currentValueForKey("cornerRadius") as? CGFloat) ?? 0
     }

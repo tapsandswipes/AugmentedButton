@@ -14,12 +14,12 @@ enum AugmentedButtonError: Error {
     case keyManagedInSuper
 }
 
-public
+open
 class AugmentedButton: UIButton {
     public
     typealias Actions = (AugmentedButton) -> Void
     
-    public
+    open
     func setActions(_ block: @escaping Actions, named name: String? = nil, forState state: UIControlState) {
         var blockGroup: [String:[Actions]] = stateBlocks[state] ?? [:]
         var blocks: [Actions]
@@ -40,14 +40,14 @@ class AugmentedButton: UIButton {
         }
     }
     
-    public
+    open
     func clearActions(forState state: UIControlState) {
         update(to: .normal)
         stateBlocks.removeValue(forKey: state)
         update(to: self.state)
     }
     
-    public
+    open
     func clearAllActions() {
         update(to: .normal)
         stateBlocks.removeAll()
@@ -57,7 +57,7 @@ class AugmentedButton: UIButton {
     fileprivate
     var stateBlocks: [UIControlState: [String:[Actions]]] = [:]
     
-    public
+    open
     func setValue(_ value: Any?, forKey key: String, forState state: UIControlState) throws {
         guard responds(to: Selector(key)) else {
             throw AugmentedButtonError.undefinedKey
@@ -83,7 +83,7 @@ class AugmentedButton: UIButton {
         }
     }
     
-    public
+    open
     func valueForKey(_ key: String, forState state: UIControlState) throws -> Any? {
         guard responds(to: Selector(key)) else {
             throw AugmentedButtonError.undefinedKey
@@ -98,7 +98,7 @@ class AugmentedButton: UIButton {
         return b.value(forKey: key) as Any?
     }
     
-    public
+    open
     func currentValueForKey(_ key: String) throws -> Any? {
         return try valueForKey(key, forState: state)
     }
