@@ -16,8 +16,8 @@ UIButton subclass with augmented functionality
 Each property has its own APIs in the form: 
 
 ```swift
-func setXxx(_ value: Value?, forState state: UIControlState)
-func xxxForState(_ state: UIControlState) -> Value?
+func setXxx(_ value: Value?, for state: UIControlState)
+func xxx(for state: UIControlState) -> Value?
 func currentXxx() -> Value?
 ```
 
@@ -26,15 +26,15 @@ func currentXxx() -> Value?
 New API to set any property supported by UIButton for any state
 
 ```swift
-func setValue(_ value: AnyObject?, forKey key: String, forState state: UIControlState) throws
-func valueForKey(_ key: String, forState state: UIControlState) throws -> AnyObject?
+func setValue(_ value: AnyObject?, forKey key: String, for state: UIControlState) throws
+func valueForKey(_ key: String, for state: UIControlState) throws -> AnyObject?
 func currentValueForKey(_ key: String) throws -> AnyObject?
 ````
 
 #### Apply a group of actions for any button state
 
 ```swift
-func setActions(_ block: @escaping (AugmentedButton) -> Void, named name: String? = default, forState state: UIControlState)
+func setActions(_ block: @escaping (AugmentedButton) -> Void, named name: String? = default, for state: UIControlState)
 ```
 
 Always set actions for `.normal` state if you want them to be reset
