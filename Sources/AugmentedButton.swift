@@ -20,7 +20,7 @@ class AugmentedButton: UIButton {
     typealias Actions = (AugmentedButton) -> Void
     
     open
-    func setActions(_ block: @escaping Actions, named name: String? = nil, forState state: UIControlState) {
+    func setActions(_ block: @escaping Actions, named name: String? = nil, for state: UIControlState) {
         var blockGroup: [String:[Actions]] = stateBlocks[state] ?? [:]
         var blocks: [Actions]
         
@@ -41,7 +41,7 @@ class AugmentedButton: UIButton {
     }
     
     open
-    func clearActions(forState state: UIControlState) {
+    func clearActions(for state: UIControlState) {
         update(to: .normal)
         stateBlocks.removeValue(forKey: state)
         update(to: self.state)
@@ -58,7 +58,7 @@ class AugmentedButton: UIButton {
     var stateBlocks: [UIControlState: [String:[Actions]]] = [:]
     
     open
-    func setValue(_ value: Any?, forKey key: String, forState state: UIControlState) throws {
+    func setValue(_ value: Any?, forKey key: String, for state: UIControlState) throws {
         guard responds(to: Selector(key)) else {
             throw AugmentedButtonError.undefinedKey
         }
@@ -71,20 +71,20 @@ class AugmentedButton: UIButton {
             button.setValue(value, forKey: key)
         }
         
-        setActions(actions, named: key, forState: state)
+        setActions(actions, named: key, for: state)
         
         // Set value for .normal state if none exist.
         if state != .normal && self.state == .normal {
-            guard try valueForKey(key, forState: .normal) == nil else { return }
+            guard try valueForKey(key, for: .normal) == nil else { return }
 
             if let normalValue = self.value(forKey: key) {
-                try setValue(normalValue, forKey: key, forState: .normal)
+                try setValue(normalValue, forKey: key, for: .normal)
             }
         }
     }
     
     open
-    func valueForKey(_ key: String, forState state: UIControlState) throws -> Any? {
+    func valueForKey(_ key: String, for state: UIControlState) throws -> Any? {
         guard responds(to: Selector(key)) else {
             throw AugmentedButtonError.undefinedKey
         }
@@ -100,7 +100,7 @@ class AugmentedButton: UIButton {
     
     open
     func currentValueForKey(_ key: String) throws -> Any? {
-        return try valueForKey(key, forState: state)
+        return try valueForKey(key, for: state)
     }
 }
 
