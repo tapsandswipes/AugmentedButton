@@ -13,6 +13,7 @@ class AugmentedButtonTests: XCTestCase {
     
     static var allTests : [(String, (AugmentedButtonTests) -> () throws -> Void)] {
         return [
+            ("testLinuxTestSuiteIncludesAllTests", testLinuxTestSuiteIncludesAllTests),
             ("testAdvancedButtonSelected", testAdvancedButtonSelected),
             ("testAdvancedButtonHighlighted", testAdvancedButtonHighlighted),
             ("testAdvancedButtonDisabled", testAdvancedButtonDisabled),
@@ -40,6 +41,14 @@ class AugmentedButtonTests: XCTestCase {
         super.tearDown()
     }
     
+    func testLinuxTestSuiteIncludesAllTests() {
+        #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
+            let darwinTestCount = Int(AugmentedButtonTests.defaultTestSuite().testCaseCount)
+            let linuxTestCount = AugmentedButtonTests.allTests.count
+            
+            XCTAssertEqual(linuxTestCount, darwinTestCount, "allTEsts (used for testing on Linux) is missing \(darwinTestCount - linuxTestCount) tests")
+        #endif
+    }
     
     func testAdvancedButtonSelected() {
         
