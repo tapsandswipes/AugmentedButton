@@ -1,6 +1,6 @@
 //
 //  AugmentedButton+CustomValues.swift
-//  Prime
+//  AugmentedButton
 //
 //  Created by Antonio Cabezuelo Vivo on 14/8/16.
 //  Copyright © 2016 Antonio Cabezuelo Vivo. All rights reserved.
