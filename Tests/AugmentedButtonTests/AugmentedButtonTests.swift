@@ -43,7 +43,7 @@ class AugmentedButtonTests: XCTestCase {
     
     func testLinuxTestSuiteIncludesAllTests() {
         #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
-            let darwinTestCount = Int(AugmentedButtonTests.defaultTestSuite().testCaseCount)
+            let darwinTestCount = Int(AugmentedButtonTests.defaultTestSuite.testCaseCount)
             let linuxTestCount = AugmentedButtonTests.allTests.count
             
             XCTAssertEqual(linuxTestCount, darwinTestCount, "allTEsts (used for testing on Linux) is missing \(darwinTestCount - linuxTestCount) tests")
