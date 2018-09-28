@@ -12,52 +12,52 @@ import UIKit
 extension AugmentedButton {
     
     open
-    func setBackgroundColor(_ color: UIColor?, for state: UIControlState) {
+    func setBackgroundColor(_ color: UIColor?, for state: UIControl.State) {
         try! setValue(color, forKey: "backgroundColor", for: state)
     }
     
     open
-    func setTintColor(_ color: UIColor?, for state: UIControlState) {
+    func setTintColor(_ color: UIColor?, for state: UIControl.State) {
         try! setValue(color, forKey: "tintColor", for: state)
     }
     
     open
-    func setBorderColor(_ color: UIColor?, for state: UIControlState) {
+    func setBorderColor(_ color: UIColor?, for state: UIControl.State) {
         try! setValue(color, forKey: "borderColor", for: state)
     }
     
     open
-    func setBorderWidth(_ width: CGFloat, for state: UIControlState) {
+    func setBorderWidth(_ width: CGFloat, for state: UIControl.State) {
         try! setValue(width, forKey: "borderWidth", for: state)
     }
     
     open
-    func setCornerRadius(_ radius: CGFloat, for state: UIControlState) {
+    func setCornerRadius(_ radius: CGFloat, for state: UIControl.State) {
         try! setValue(radius, forKey: "cornerRadius", for: state)
     }
     
     open
-    func backgroundColor(for state: UIControlState) -> UIColor? {
+    func backgroundColor(for state: UIControl.State) -> UIColor? {
         return try! valueForKey("backgroundColor", for: state) as? UIColor
     }
     
     open
-    func tintColor(for state: UIControlState) -> UIColor? {
+    func tintColor(for state: UIControl.State) -> UIColor? {
         return try! valueForKey("tintColor", for: state) as? UIColor
     }
     
     open
-    func borderColor(for state: UIControlState) -> UIColor? {
+    func borderColor(for state: UIControl.State) -> UIColor? {
         return try! valueForKey("borderColor", for: state) as? UIColor
     }
     
     open
-    func borderWidth(for state: UIControlState) -> CGFloat {
+    func borderWidth(for state: UIControl.State) -> CGFloat {
         return (try! valueForKey("borderWidth", for: state) as? CGFloat) ?? 0
     }
     
     open
-    func cornerRadius(for state: UIControlState) -> CGFloat {
+    func cornerRadius(for state: UIControl.State) -> CGFloat {
         return (try! valueForKey("cornerRadius", for: state) as? CGFloat) ?? 0
     }
     

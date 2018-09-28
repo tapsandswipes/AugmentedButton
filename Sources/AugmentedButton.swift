@@ -20,7 +20,7 @@ class AugmentedButton: UIButton {
     typealias Actions = (AugmentedButton) -> Void
     
     open
-    func setActions(_ block: @escaping Actions, named name: String? = nil, for state: UIControlState) {
+    func setActions(_ block: @escaping Actions, named name: String? = nil, for state: UIControl.State) {
         var blockGroup: [String:[Actions]] = stateBlocks[state] ?? [:]
         var blocks: [Actions]
         
@@ -41,7 +41,7 @@ class AugmentedButton: UIButton {
     }
     
     open
-    func clearActions(for state: UIControlState) {
+    func clearActions(for state: UIControl.State) {
         update(to: .normal)
         stateBlocks.removeValue(forKey: state)
         update(to: self.state)
@@ -55,10 +55,10 @@ class AugmentedButton: UIButton {
     }
     
     fileprivate
-    var stateBlocks: [UIControlState: [String:[Actions]]] = [:]
+    var stateBlocks: [UIControl.State: [String:[Actions]]] = [:]
     
     open
-    func setValue(_ value: Any?, forKey key: String, for state: UIControlState) throws {
+    func setValue(_ value: Any?, forKey key: String, for state: UIControl.State) throws {
         guard responds(to: Selector(key)) else {
             throw AugmentedButtonError.undefinedKey
         }
@@ -84,7 +84,7 @@ class AugmentedButton: UIButton {
     }
     
     open
-    func valueForKey(_ key: String, for state: UIControlState) throws -> Any? {
+    func valueForKey(_ key: String, for state: UIControl.State) throws -> Any? {
         guard responds(to: Selector(key)) else {
             throw AugmentedButtonError.undefinedKey
         }
@@ -132,7 +132,7 @@ extension AugmentedButton {
 
 private
 extension AugmentedButton {
-    func update(to state: UIControlState) {
+    func update(to state: UIControl.State) {
         guard let blocks = stateBlocks[state] else { return }
         
         blocks.forEach { $1.forEach { $0(self) } }

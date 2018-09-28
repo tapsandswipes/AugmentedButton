@@ -128,7 +128,7 @@ class AugmentedButtonTests: XCTestCase {
     
     func testValueForStates() {
         
-        let values: [(UIControlState, CGFloat)] = [(UIControlState(), 1), (.selected, 2), (.highlighted, 3), (.disabled, 4)]
+        let values: [(UIControl.State, CGFloat)] = [(.normal, 1), (.selected, 2), (.highlighted, 3), (.disabled, 4)]
         
         values.forEach { (state, value) in
             try! sut.setValue(value as AnyObject?, forKey: "borderWidth", for: state)
@@ -172,7 +172,7 @@ class AugmentedButtonTests: XCTestCase {
     
     func testCurrentValues() {
         
-        let values: [(UIControlState, CGFloat)] = [(UIControlState(), 1), (.selected, 2), (.highlighted, 3), (.disabled, 4)]
+        let values: [(UIControl.State, CGFloat)] = [(.normal, 1), (.selected, 2), (.highlighted, 3), (.disabled, 4)]
         
         values.forEach { (state, value) in
             try! sut.setValue(value as AnyObject?, forKey: "borderWidth", for: state)
