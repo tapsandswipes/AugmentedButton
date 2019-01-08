@@ -13,77 +13,77 @@ extension AugmentedButton {
     
     open
     func setBackgroundColor(_ color: UIColor?, for state: UIControl.State) {
-        try! setValue(color, forKey: "backgroundColor", for: state)
+        setValue(color, forKeyPath: \.backgroundColor, for: state)
     }
     
     open
     func setTintColor(_ color: UIColor?, for state: UIControl.State) {
-        try! setValue(color, forKey: "tintColor", for: state)
+        setValue(color, forKeyPath: \.tintColor, for: state)
     }
     
     open
     func setBorderColor(_ color: UIColor?, for state: UIControl.State) {
-        try! setValue(color, forKey: "borderColor", for: state)
+        setValue(color, forKeyPath: \.borderColor, for: state)
     }
     
     open
     func setBorderWidth(_ width: CGFloat, for state: UIControl.State) {
-        try! setValue(width, forKey: "borderWidth", for: state)
+        setValue(width, forKeyPath: \.borderWidth, for: state)
     }
     
     open
     func setCornerRadius(_ radius: CGFloat, for state: UIControl.State) {
-        try! setValue(radius, forKey: "cornerRadius", for: state)
+        setValue(radius, forKeyPath: \.cornerRadius, for: state)
     }
     
     open
     func backgroundColor(for state: UIControl.State) -> UIColor? {
-        return try! valueForKey("backgroundColor", for: state) as? UIColor
+        return valueForKeyPath(\.backgroundColor, for: state)?.map( { $0 })
     }
     
     open
     func tintColor(for state: UIControl.State) -> UIColor? {
-        return try! valueForKey("tintColor", for: state) as? UIColor
+        return valueForKeyPath(\.tintColor, for: state)?.map( { $0 })
     }
     
     open
     func borderColor(for state: UIControl.State) -> UIColor? {
-        return try! valueForKey("borderColor", for: state) as? UIColor
+        return valueForKeyPath(\.borderColor, for: state)?.map( { $0 })
     }
     
     open
     func borderWidth(for state: UIControl.State) -> CGFloat {
-        return (try! valueForKey("borderWidth", for: state) as? CGFloat) ?? 0
+        return valueForKeyPath(\.borderWidth, for: state) ?? 0
     }
     
     open
     func cornerRadius(for state: UIControl.State) -> CGFloat {
-        return (try! valueForKey("cornerRadius", for: state) as? CGFloat) ?? 0
+        return valueForKeyPath(\.cornerRadius, for: state) ?? 0
     }
     
     open
     func currentBackgroundColor() -> UIColor? {
-        return try! currentValueForKey("backgroundColor") as? UIColor
+        return currentValueForKeyPath(\.backgroundColor)
     }
     
     open
     func currentTintColor() -> UIColor? {
-        return try! currentValueForKey("tintColor") as? UIColor
+        return currentValueForKeyPath(\.tintColor)
     }
     
     open
     func currentBorderColor() -> UIColor? {
-        return try! currentValueForKey("borderColor") as? UIColor
+        return currentValueForKeyPath(\.borderColor)
     }
     
     open
     func currentBorderWidth() -> CGFloat {
-        return (try! currentValueForKey("borderWidth") as? CGFloat) ?? 0
+        return currentValueForKeyPath(\.borderWidth)
     }
 
     open
     func currentCornerRadius() -> CGFloat {
-        return (try! currentValueForKey("cornerRadius") as? CGFloat) ?? 0
+        return currentValueForKeyPath(\.cornerRadius)
     }
     
 }

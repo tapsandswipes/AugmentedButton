@@ -18,12 +18,12 @@ class AugmentedButtonTests: XCTestCase {
             ("testAdvancedButtonHighlighted", testAdvancedButtonHighlighted),
             ("testAdvancedButtonDisabled", testAdvancedButtonDisabled),
             ("testAdvancedButtonHighlightedAndSelected", testAdvancedButtonHighlightedAndSelected),
-            ("testValidProperties", testValidProperties),
             ("testValueForStates", testValueForStates),
             ("testActionsRemoval", testActionsRemoval),
             ("testCurrentValues", testCurrentValues),
             ("testCustomProperties", testCustomProperties),
             ("testNormalValues", testNormalValues),
+            ("testCustomKeyPaths", testCustomKeyPaths),
         ]
     }
 
@@ -104,44 +104,18 @@ class AugmentedButtonTests: XCTestCase {
         XCTAssertTrue(called, "block not called")
     }
     
-    func testValidProperties() {
-        
-        XCTAssertThrowsError(try sut.setValue(2 as AnyObject?, forKey: "pepe", for: .normal))
-        XCTAssertThrowsError(try sut.valueForKey("pepe", for: .normal))
-        XCTAssertThrowsError(try sut.setValue("Hi" as AnyObject?, forKey: "title", for: .normal), "-setTitle:forState: is defined in UIButton")
-        XCTAssertThrowsError(try sut.setValue(UIColor.white, forKey: "titleColor", for: .normal), "-setTitleColor:forState: is defined in UIButton")
-        XCTAssertThrowsError(try sut.setValue("" as AnyObject?, forKey: "image", for: .normal), "-setImage:forState: is defined in UIButton")
-        
-        do {
-            try sut.setValue(UIColor.white, forKey: "tintColor", for: .normal)
-        } catch {
-            XCTFail("-setTintColor:forState: should not be defined in parent")
-        }
-        
-        do {
-            try sut.setValue(UIColor.white, forKey: "borderColor", for: .normal)
-        } catch {
-            XCTFail("-setBorderColor:forState: should not be defined in parent")
-        }
-        
-    }
-    
     func testValueForStates() {
         
         let values: [(UIControl.State, CGFloat)] = [(.normal, 1), (.selected, 2), (.highlighted, 3), (.disabled, 4)]
         
         values.forEach { (state, value) in
-            try! sut.setValue(value as AnyObject?, forKey: "borderWidth", for: state)
+            sut.setValue(value, forKeyPath: \.borderWidth, for: state)
         }
         
         values.forEach { (state, value) in
-            do {
-                let v = try sut.valueForKey("borderWidth", for: state) as? CGFloat
-                XCTAssertNotNil(v)
-                XCTAssertEqual(v!, value)
-            } catch {
-                XCTFail()
-            }
+            let v = sut.valueForKeyPath(\.borderWidth, for: state)
+            XCTAssertNotNil(v)
+            XCTAssertEqual(v!, value)
         }
         
     }
@@ -175,21 +149,21 @@ class AugmentedButtonTests: XCTestCase {
         let values: [(UIControl.State, CGFloat)] = [(.normal, 1), (.selected, 2), (.highlighted, 3), (.disabled, 4)]
         
         values.forEach { (state, value) in
-            try! sut.setValue(value as AnyObject?, forKey: "borderWidth", for: state)
+            sut.setValue(value, forKeyPath: \.borderWidth, for: state)
         }
         
-        XCTAssertEqual((try! sut.currentValueForKey("borderWidth") as? CGFloat)!, 1)
+        XCTAssertEqual(sut.currentValueForKeyPath(\.borderWidth), 1)
         
         sut.isSelected = true
-        XCTAssertEqual((try! sut.currentValueForKey("borderWidth") as? CGFloat)!, 2)
+        XCTAssertEqual(sut.currentValueForKeyPath(\.borderWidth), 2)
         
         sut.isSelected = false
         sut.isHighlighted = true
-        XCTAssertEqual((try! sut.currentValueForKey("borderWidth") as? CGFloat)!, 3)
+        XCTAssertEqual(sut.currentValueForKeyPath(\.borderWidth), 3)
         
         sut.isHighlighted = false
         sut.isEnabled = false
-        XCTAssertEqual((try! sut.currentValueForKey("borderWidth") as? CGFloat)!, 4)
+        XCTAssertEqual(sut.currentValueForKeyPath(\.borderWidth), 4)
     }
     
     func testCustomProperties() {
@@ -222,25 +196,43 @@ class AugmentedButtonTests: XCTestCase {
         XCTAssertEqual(sut.tintColor, UIColor.lightGray)
         
         sut.isSelected = true
-        XCTAssertEqual(sut.currentCornerRadius(), 0)
+        XCTAssertEqual(sut.currentCornerRadius(), 13)
         XCTAssertEqual(sut.currentBorderWidth(), 0)
         
     }
     
     func testNormalValues() {
         sut.borderWidth = 1
+        sut.borderColor = .red
         sut.setBorderWidth(3, for: .highlighted)
-        
+        sut.setBorderColor(UIColor(white: 1, alpha: 0.5), for: .highlighted)
+
         XCTAssertEqual(sut.currentBorderWidth(), 1)
         XCTAssertEqual(sut.borderWidth(for: .highlighted), 3)
-        
+        XCTAssertEqual(sut.borderColor(for: .highlighted), UIColor(white: 1, alpha: 0.5))
+
         sut.isHighlighted = true
         
         XCTAssertEqual(sut.currentBorderWidth(), 3)
+        XCTAssertEqual(sut.currentBorderColor(), UIColor(white: 1, alpha: 0.5))
 
         sut.isHighlighted = false
         
         XCTAssertEqual(sut.currentBorderWidth(), 1)
+        XCTAssertEqual(sut.currentBorderColor(), .red)
+
     }
     
+    func testCustomKeyPaths() {
+        sut.setValue(0.8, forKeyPath: \.layer.opacity, for: .selected)
+        
+        XCTAssertEqual(sut.currentValueForKeyPath(\.layer.opacity), 1)
+
+        sut.isSelected = true
+        XCTAssertEqual(sut.currentValueForKeyPath(\.layer.opacity), 0.8)
+
+        sut.isSelected = false
+        XCTAssertEqual(sut.currentValueForKeyPath(\.layer.opacity), 1)
+
+    }
 }

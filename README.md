@@ -26,9 +26,9 @@ func currentXxx() -> Value?
 New API to set any property supported by UIButton for any state
 
 ```swift
-func setValue(_ value: AnyObject?, forKey key: String, for state: UIControlState) throws
-func valueForKey(_ key: String, for state: UIControlState) throws -> AnyObject?
-func currentValueForKey(_ key: String) throws -> AnyObject?
+func setValue<Value>(_: Value, forKeyPath: ReferenceWritableKeyPath<AugmentedButton, Value>, for: UIControl.State)
+func valueForKeyPath<Value>(_: KeyPath<AugmentedButton, Value>, for: UIControl.State) -> Value?
+func currentValueForKeyPath<Value>(_: KeyPath<AugmentedButton, Value>) -> Value
 ````
 
 #### Apply a group of actions for any button state
@@ -71,14 +71,14 @@ github "tapsandswipes/AugmentedButton"
 
 #### Via [Swift Package Manager](https://github.com/apple/swift-package-manager)
 
-1. Add `.Package(url: "https://github.com/tapsandswipes/AugmentedButton.git", "1.0.3")` to your `Package.swift` inside `dependencies`:
+1. Add `.Package(url: "https://github.com/tapsandswipes/AugmentedButton.git", "1.1.0")` to your `Package.swift` inside `dependencies`:
 ```swift
 import PackageDescription
 
 let package = Package(
 	name: "yourapp",
 	dependencies: [
-		.Package(url: "https://github.com/tapsandswipes/AugmentedButton.git", "1.0.3")
+		.Package(url: "https://github.com/tapsandswipes/AugmentedButton.git", "1.1.0")
  	]
 )
 ```

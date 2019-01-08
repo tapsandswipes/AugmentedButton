@@ -55,8 +55,45 @@ class AugmentedButton: UIButton {
     }
     
     fileprivate
-    var stateBlocks: [UIControl.State: [String:[Actions]]] = [:]
+    var stateBlocks: [UIControl.State: [String: [Actions]]] = [:]
     
+    open
+    func setValue<Value>(_ value: Value, forKeyPath keyPath: ReferenceWritableKeyPath<AugmentedButton, Value>, for state: UIControl.State) {
+        let actions: Actions = { button in
+            button[keyPath: keyPath] = value
+        }
+
+        setActions(actions, named: String(describing: keyPath), for: state)
+        
+        // Set value for .normal state if none exist.
+        if state != .normal && self.state == .normal {
+            guard valueForKeyPath(keyPath, for: .normal) == nil else { return }
+            
+            setValue(self[keyPath: keyPath], forKeyPath: keyPath, for: .normal)
+        }
+
+    }
+    
+    open
+    func valueForKeyPath<Value>(_ keyPath: KeyPath<AugmentedButton, Value>, for state: UIControl.State) -> Value? {
+        guard let block: Actions = stateBlocks[state]?[String(describing: keyPath)]?.first else { return nil }
+        
+        let b = AugmentedButton(type: .custom)
+        
+        block(b)
+        
+        return b[keyPath: keyPath]
+    }
+
+    open
+    func currentValueForKeyPath<Value>(_ keyPath: KeyPath<AugmentedButton, Value>) -> Value {
+        return valueForKeyPath(keyPath, for: state) ?? valueForKeyPath(keyPath, for: .normal) ?? self[keyPath: keyPath]
+    }
+
+    // #############################################
+    // MARK: - Deprecated methods
+    // #############################################
+    @available(*, deprecated, message: "Use setValue(_,forKeyPath:,for:) instead")
     open
     func setValue(_ value: Any?, forKey key: String, for state: UIControl.State) throws {
         guard responds(to: Selector(key)) else {
@@ -76,13 +113,14 @@ class AugmentedButton: UIButton {
         // Set value for .normal state if none exist.
         if state != .normal && self.state == .normal {
             guard try valueForKey(key, for: .normal) == nil else { return }
-
+            
             if let normalValue = self.value(forKey: key) {
                 try setValue(normalValue, forKey: key, for: .normal)
             }
         }
     }
     
+    @available(*, deprecated, message: "Use valueForKeyPath(_,for:) instead")
     open
     func valueForKey(_ key: String, for state: UIControl.State) throws -> Any? {
         guard responds(to: Selector(key)) else {
@@ -98,10 +136,12 @@ class AugmentedButton: UIButton {
         return b.value(forKey: key) as Any?
     }
     
+    @available(*, deprecated, message: "Use currentValueForKeyPath(_) instead")
     open
     func currentValueForKey(_ key: String) throws -> Any? {
         return try valueForKey(key, for: state)
     }
+    
 }
 
 // MARK: Overrides
