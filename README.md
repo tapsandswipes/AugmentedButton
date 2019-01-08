@@ -16,9 +16,17 @@ UIButton subclass with augmented functionality
 Each property has its own APIs in the form: 
 
 ```swift
-func setXxx(_ value: Value?, for state: UIControlState)
-func xxx(for state: UIControlState) -> Value?
-func currentXxx() -> Value?
+func setXxx(_ value: Value, for state: UIControl.State)
+func xxx(for state: UIControlState) -> Value
+func currentXxx() -> Value
+```
+
+with `Value` equals to the type of each property in `UIButton`. For example, for `backgroundColor` the API is:
+
+```swift
+func setBackgroundColor(_ color: UIColor?, for state: UIControl.State)
+func backgroundColor(for state: UIControl.State) -> UIColor?
+func currentBackgroundColor() -> UIColor?
 ```
 
 #### Set any button property for any button state
@@ -34,7 +42,7 @@ func currentValueForKeyPath<Value>(_: KeyPath<AugmentedButton, Value>) -> Value
 #### Apply a group of actions for any button state
 
 ```swift
-func setActions(_ block: @escaping (AugmentedButton) -> Void, named name: String? = default, for state: UIControlState)
+func setActions(_ block: @escaping (AugmentedButton) -> Void, named name: String? = default, for state: UIControl.State)
 ```
 
 Always set actions for `.normal` state if you want them to be reset
