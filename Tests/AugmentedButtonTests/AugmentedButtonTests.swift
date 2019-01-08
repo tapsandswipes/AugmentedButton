@@ -197,7 +197,7 @@ class AugmentedButtonTests: XCTestCase {
         
         sut.isSelected = true
         XCTAssertEqual(sut.currentCornerRadius(), 13)
-        XCTAssertEqual(sut.currentBorderWidth(), 0)
+        XCTAssertEqual(sut.currentBorderWidth(), 33)
         
     }
     

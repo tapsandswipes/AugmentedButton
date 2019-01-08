@@ -63,7 +63,7 @@ class AugmentedButton: UIButton {
             button[keyPath: keyPath] = value
         }
 
-        setActions(actions, named: String(describing: keyPath), for: state)
+        setActions(actions, named: keyPath.ab_stateBlockKey, for: state)
         
         // Set value for .normal state if none exist.
         if state != .normal && self.state == .normal {
@@ -76,7 +76,7 @@ class AugmentedButton: UIButton {
     
     open
     func valueForKeyPath<Value>(_ keyPath: KeyPath<AugmentedButton, Value>, for state: UIControl.State) -> Value? {
-        guard let block: Actions = stateBlocks[state]?[String(describing: keyPath)]?.first else { return nil }
+        guard let block: Actions = stateBlocks[state]?[keyPath.ab_stateBlockKey]?.first else { return nil }
         
         let b = AugmentedButton(type: .custom)
         
@@ -176,5 +176,13 @@ extension AugmentedButton {
         guard let blocks = stateBlocks[state] else { return }
         
         blocks.forEach { $1.forEach { $0(self) } }
+    }
+}
+
+
+private
+extension KeyPath {
+    var ab_stateBlockKey: String {
+        return NSExpression(forKeyPath: self).keyPath
     }
 }
