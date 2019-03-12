@@ -15,7 +15,7 @@ enum AugmentedButtonError: Error {
 }
 
 open
-class AugmentedButton: UIButton {
+class AugmentedButton: StateObservableButton {
     public
     typealias Actions = (AugmentedButton) -> Void
     
@@ -67,7 +67,7 @@ class AugmentedButton: UIButton {
         
         // Set value for .normal state if none exist.
         if state != .normal && self.state == .normal {
-            guard valueForKeyPath(keyPath, for: .normal) == nil else { return }
+            guard actionsForKeyPath(keyPath, for: .normal) == nil else { return }
             
             setValue(self[keyPath: keyPath], forKeyPath: keyPath, for: .normal)
         }
@@ -76,7 +76,7 @@ class AugmentedButton: UIButton {
     
     open
     func valueForKeyPath<Value>(_ keyPath: KeyPath<AugmentedButton, Value>, for state: UIControl.State) -> Value? {
-        guard let block: Actions = stateBlocks[state]?[keyPath.ab_stateBlockKey]?.first else { return nil }
+        guard let block: Actions = actionsForKeyPath(keyPath, for: state) else { return nil }
         
         let b = AugmentedButton(type: .custom)
         
@@ -90,6 +90,11 @@ class AugmentedButton: UIButton {
         return valueForKeyPath(keyPath, for: state) ?? valueForKeyPath(keyPath, for: .normal) ?? self[keyPath: keyPath]
     }
 
+    private
+    func actionsForKeyPath<Value>(_ keyPath: KeyPath<AugmentedButton, Value>, for state: UIControl.State) -> Actions? {
+        return stateBlocks[state]?[keyPath.ab_stateBlockKey]?.first
+    }
+    
     // #############################################
     // MARK: - Deprecated methods
     // #############################################
