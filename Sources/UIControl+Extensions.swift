@@ -8,6 +8,36 @@
 
 import UIKit
 
+public
+extension UIControl.Event {
+    public
+    static let firstAvailableAppEventValue: UInt = (~(UIControl.Event.systemReserved.rawValue | UIControl.Event.applicationReserved.rawValue) + 1) & UIControl.Event.applicationReserved.rawValue
+    
+    public
+    static func appEvent(at position: UInt) -> UIControl.Event {
+        let value = (firstAvailableAppEventValue << position) & UIControl.Event.applicationReserved.rawValue
+        
+        guard value != 0 else { fatalError("App event not available at position \(position)") }
+        
+        return UIControl.Event(rawValue: value)
+    }
+}
+
+public
+extension UIControl.State {
+    public
+    static let firstAvailableAppStateValue: UInt = (~(UIControl.State.reserved.rawValue | UIControl.State.application.rawValue) + 1) & UIControl.State.application.rawValue
+    
+    public
+    static func appState(at position: UInt) -> UIControl.State? {
+        let value = (firstAvailableAppStateValue << position) & UIControl.State.application.rawValue
+        
+        guard value != 0 else { return nil }
+        
+        return UIControl.State(rawValue: value)
+    }
+}
+
 extension UIControl.State: Hashable {
     public func hash(into hasher: inout Hasher) {
         hasher.combine(rawValue)
