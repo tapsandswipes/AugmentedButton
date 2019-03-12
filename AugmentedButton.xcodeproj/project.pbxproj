@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9AE935A2237CCAE0026A762 /* StateObservableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AE93592237CCAE0026A762 /* StateObservableButton.swift */; };
+		A9AE935C2237D46A0026A762 /* StateObservableButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AE935B2237D46A0026A762 /* StateObservableButtonTests.swift */; };
+		A9AE93642237E2C90026A762 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AE93632237E2C90026A762 /* AppDelegate.swift */; };
+		A9AE93662237E2C90026A762 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AE93652237E2C90026A762 /* ViewController.swift */; };
+		A9AE93692237E2C90026A762 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9AE93672237E2C90026A762 /* Main.storyboard */; };
+		A9AE936B2237E2CA0026A762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9AE936A2237E2CA0026A762 /* Assets.xcassets */; };
+		A9AE936E2237E2CA0026A762 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9AE936C2237E2CA0026A762 /* LaunchScreen.storyboard */; };
 		A9F2B7801E103EB90029A2E3 /* AugmentedButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9F2B7761E103EB90029A2E3 /* AugmentedButton.framework */; };
 		A9F2B7851E103EB90029A2E3 /* AugmentedButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F2B7841E103EB90029A2E3 /* AugmentedButtonTests.swift */; };
 		A9F2B7871E103EB90029A2E3 /* AugmentedButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A9F2B7791E103EB90029A2E3 /* AugmentedButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -17,6 +24,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A9AE93732237E2F80026A762 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9F2B76D1E103EB90029A2E3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9AE93602237E2C90026A762;
+			remoteInfo = TestApp;
+		};
 		A9F2B7811E103EB90029A2E3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A9F2B76D1E103EB90029A2E3 /* Project object */;
@@ -27,6 +41,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A9AE93592237CCAE0026A762 /* StateObservableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateObservableButton.swift; sourceTree = "<group>"; };
+		A9AE935B2237D46A0026A762 /* StateObservableButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateObservableButtonTests.swift; sourceTree = "<group>"; };
+		A9AE93612237E2C90026A762 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9AE93632237E2C90026A762 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A9AE93652237E2C90026A762 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A9AE93682237E2C90026A762 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A9AE936A2237E2CA0026A762 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A9AE936D2237E2CA0026A762 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A9AE936F2237E2CA0026A762 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9F2B7761E103EB90029A2E3 /* AugmentedButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AugmentedButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9F2B7791E103EB90029A2E3 /* AugmentedButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AugmentedButton.h; sourceTree = "<group>"; };
 		A9F2B77A1E103EB90029A2E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,6 +63,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A9AE935E2237E2C90026A762 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A9F2B7721E103EB90029A2E3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -58,11 +88,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A9AE93622237E2C90026A762 /* TestApp */ = {
+			isa = PBXGroup;
+			children = (
+				A9AE93632237E2C90026A762 /* AppDelegate.swift */,
+				A9AE93652237E2C90026A762 /* ViewController.swift */,
+				A9AE93672237E2C90026A762 /* Main.storyboard */,
+				A9AE936A2237E2CA0026A762 /* Assets.xcassets */,
+				A9AE936C2237E2CA0026A762 /* LaunchScreen.storyboard */,
+				A9AE936F2237E2CA0026A762 /* Info.plist */,
+			);
+			path = TestApp;
+			sourceTree = "<group>";
+		};
 		A9F2B76C1E103EB90029A2E3 = {
 			isa = PBXGroup;
 			children = (
 				A9F2B7781E103EB90029A2E3 /* AugmentedButton */,
 				A9F2B7831E103EB90029A2E3 /* AugmentedButtonTests */,
+				A9AE93622237E2C90026A762 /* TestApp */,
 				A9F2B7771E103EB90029A2E3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,6 +116,7 @@
 			children = (
 				A9F2B7761E103EB90029A2E3 /* AugmentedButton.framework */,
 				A9F2B77F1E103EB90029A2E3 /* AugmentedButtonTests.xctest */,
+				A9AE93612237E2C90026A762 /* TestApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,6 +126,7 @@
 			children = (
 				A9F2B7911E103FCB0029A2E3 /* AugmentedButton.swift */,
 				A9F2B7921E103FCB0029A2E3 /* AugmentedButton+StateValues.swift */,
+				A9AE93592237CCAE0026A762 /* StateObservableButton.swift */,
 				A9F2B7901E103FCB0029A2E3 /* UIControl+Extensions.swift */,
 				A9F2B7931E103FCB0029A2E3 /* UIView+LayerProperties.swift */,
 				A9F2B7791E103EB90029A2E3 /* AugmentedButton.h */,
@@ -93,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				A9F2B7841E103EB90029A2E3 /* AugmentedButtonTests.swift */,
+				A9AE935B2237D46A0026A762 /* StateObservableButtonTests.swift */,
 				A9F2B7861E103EB90029A2E3 /* Info.plist */,
 			);
 			name = AugmentedButtonTests;
@@ -113,6 +160,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		A9AE93602237E2C90026A762 /* TestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9AE93702237E2CA0026A762 /* Build configuration list for PBXNativeTarget "TestApp" */;
+			buildPhases = (
+				A9AE935D2237E2C90026A762 /* Sources */,
+				A9AE935E2237E2C90026A762 /* Frameworks */,
+				A9AE935F2237E2C90026A762 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestApp;
+			productName = TestApp;
+			productReference = A9AE93612237E2C90026A762 /* TestApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 		A9F2B7751E103EB90029A2E3 /* AugmentedButton */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9F2B78A1E103EB90029A2E3 /* Build configuration list for PBXNativeTarget "AugmentedButton" */;
@@ -143,6 +207,7 @@
 			);
 			dependencies = (
 				A9F2B7821E103EB90029A2E3 /* PBXTargetDependency */,
+				A9AE93742237E2F80026A762 /* PBXTargetDependency */,
 			);
 			name = AugmentedButtonTests;
 			productName = AugmentedButtonTests;
@@ -155,10 +220,15 @@
 		A9F2B76D1E103EB90029A2E3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0820;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Antonio Cabezuelo Vivo";
 				TargetAttributes = {
+					A9AE93602237E2C90026A762 = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = 22LB4KVNJZ;
+						ProvisioningStyle = Automatic;
+					};
 					A9F2B7751E103EB90029A2E3 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 22LB4KVNJZ;
@@ -170,6 +240,7 @@
 						DevelopmentTeam = 22LB4KVNJZ;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
+						TestTargetID = A9AE93602237E2C90026A762;
 					};
 				};
 			};
@@ -179,6 +250,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = A9F2B76C1E103EB90029A2E3;
 			productRefGroup = A9F2B7771E103EB90029A2E3 /* Products */;
@@ -187,11 +259,22 @@
 			targets = (
 				A9F2B7751E103EB90029A2E3 /* AugmentedButton */,
 				A9F2B77E1E103EB90029A2E3 /* AugmentedButtonTests */,
+				A9AE93602237E2C90026A762 /* TestApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A9AE935F2237E2C90026A762 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9AE936E2237E2CA0026A762 /* LaunchScreen.storyboard in Resources */,
+				A9AE936B2237E2CA0026A762 /* Assets.xcassets in Resources */,
+				A9AE93692237E2C90026A762 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A9F2B7741E103EB90029A2E3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -209,6 +292,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A9AE935D2237E2C90026A762 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9AE93662237E2C90026A762 /* ViewController.swift in Sources */,
+				A9AE93642237E2C90026A762 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A9F2B7711E103EB90029A2E3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -217,6 +309,7 @@
 				A9F2B7961E103FCB0029A2E3 /* AugmentedButton+StateValues.swift in Sources */,
 				A9F2B7971E103FCB0029A2E3 /* UIView+LayerProperties.swift in Sources */,
 				A9F2B7951E103FCB0029A2E3 /* AugmentedButton.swift in Sources */,
+				A9AE935A2237CCAE0026A762 /* StateObservableButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9AE935C2237D46A0026A762 /* StateObservableButtonTests.swift in Sources */,
 				A9F2B7851E103EB90029A2E3 /* AugmentedButtonTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,6 +325,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A9AE93742237E2F80026A762 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9AE93602237E2C90026A762 /* TestApp */;
+			targetProxy = A9AE93732237E2F80026A762 /* PBXContainerItemProxy */;
+		};
 		A9F2B7821E103EB90029A2E3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A9F2B7751E103EB90029A2E3 /* AugmentedButton */;
@@ -238,7 +337,73 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		A9AE93672237E2C90026A762 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9AE93682237E2C90026A762 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A9AE936C2237E2CA0026A762 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9AE936D2237E2CA0026A762 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		A9AE93712237E2CA0026A762 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 22LB4KVNJZ;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = TestApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tas.TestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A9AE93722237E2CA0026A762 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 22LB4KVNJZ;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = TestApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tas.TestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		A9F2B7881E103EB90029A2E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -405,6 +570,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tas.AugmentedButtonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestApp.app/TestApp";
 			};
 			name = Debug;
 		};
@@ -418,12 +584,22 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tas.AugmentedButtonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestApp.app/TestApp";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A9AE93702237E2CA0026A762 /* Build configuration list for PBXNativeTarget "TestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9AE93712237E2CA0026A762 /* Debug */,
+				A9AE93722237E2CA0026A762 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A9F2B7701E103EB90029A2E3 /* Build configuration list for PBXProject "AugmentedButton" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
