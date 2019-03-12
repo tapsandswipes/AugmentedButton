@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
   
   s.name = "AugmentedButton"
-  s.version = "1.1.1"
-  s.summary = "UIButton subclass with augmented functionality."
+  s.version = "1.2"
+  s.summary = "UIButton subclasses with augmented functionality."
   s.homepage = "https://github.com/tapsandswipes/AugmentedButton"
   s.license = { :type => "MIT", :file => "LICENSE" }
   s.authors = { "Antonio Cabezuelo Vivo" => 'antonio@tapsandswipes.com' }
