@@ -10,7 +10,6 @@ import UIKit
 
 public
 extension UIControl.Event {
-    public
     static let stateChanged: UIControl.Event = UIControl.Event.appEvent(at: 0)
 }
 
