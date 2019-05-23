@@ -17,7 +17,7 @@ extension UIView {
         }
         
         get {
-            return layer.borderColor != nil ? UIColor(cgColor: layer.borderColor!) : nil
+            return layer.borderColor.map(UIColor.init)
         }
     }
 

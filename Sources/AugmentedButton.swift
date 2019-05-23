@@ -54,7 +54,7 @@ class AugmentedButton: StateObservableButton {
         update(to: self.state)
     }
     
-    fileprivate
+    private
     var stateBlocks: [UIControl.State: [String: [Actions]]] = [:]
     
     open
@@ -90,14 +90,60 @@ class AugmentedButton: StateObservableButton {
         return valueForKeyPath(keyPath, for: state) ?? valueForKeyPath(keyPath, for: .normal) ?? self[keyPath: keyPath]
     }
 
-    private
+}
+
+// MARK: Overrides
+extension AugmentedButton {
+    override open var isSelected: Bool {
+        didSet {
+            if oldValue != isSelected {
+                update(to: state)
+            }
+        }
+    }
+    override open var isHighlighted: Bool {
+        didSet {
+            if oldValue != isHighlighted {
+                update(to: state)
+            }
+        }
+    }
+    
+    override open var isEnabled: Bool {
+        didSet {
+            if oldValue != isEnabled {
+                update(to: state)
+            }
+        }
+    }
+}
+
+private
+extension AugmentedButton {
+
     func actionsForKeyPath<Value>(_ keyPath: KeyPath<AugmentedButton, Value>, for state: UIControl.State) -> Actions? {
         return stateBlocks[state]?[keyPath.ab_stateBlockKey]?.first
     }
     
-    // #############################################
-    // MARK: - Deprecated methods
-    // #############################################
+    func update(to state: UIControl.State) {
+        guard let blocks = stateBlocks[state] else { return }
+        
+        blocks.forEach { $1.forEach { $0(self) } }
+    }
+}
+
+
+private
+extension KeyPath {
+    var ab_stateBlockKey: String {
+        return NSExpression(forKeyPath: self).keyPath
+    }
+}
+
+// #############################################
+// MARK: - Deprecated methods
+// #############################################
+extension AugmentedButton {
     @available(*, deprecated, message: "Use setValue(_,forKeyPath:,for:) instead")
     open
     func setValue(_ value: Any?, forKey key: String, for state: UIControl.State) throws {
@@ -146,48 +192,5 @@ class AugmentedButton: StateObservableButton {
     func currentValueForKey(_ key: String) throws -> Any? {
         return try valueForKey(key, for: state)
     }
-    
-}
 
-// MARK: Overrides
-extension AugmentedButton {
-    override open var isSelected: Bool {
-        didSet {
-            if oldValue != isSelected {
-                update(to: state)
-            }
-        }
-    }
-    override open var isHighlighted: Bool {
-        didSet {
-            if oldValue != isHighlighted {
-                update(to: state)
-            }
-        }
-    }
-    
-    override open var isEnabled: Bool {
-        didSet {
-            if oldValue != isEnabled {
-                update(to: state)
-            }
-        }
-    }
-}
-
-private
-extension AugmentedButton {
-    func update(to state: UIControl.State) {
-        guard let blocks = stateBlocks[state] else { return }
-        
-        blocks.forEach { $1.forEach { $0(self) } }
-    }
-}
-
-
-private
-extension KeyPath {
-    var ab_stateBlockKey: String {
-        return NSExpression(forKeyPath: self).keyPath
-    }
 }
