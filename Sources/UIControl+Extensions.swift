@@ -21,6 +21,20 @@ extension UIControl.Event {
         
         return UIControl.Event(rawValue: value)
     }
+    
+    private
+    static var lastUsedPosition: UInt?
+    
+    static func nextAvailableAppEvent() -> UIControl.Event {
+        if let p = lastUsedPosition {
+            lastUsedPosition = p + 1
+        } else {
+            lastUsedPosition = 0
+        }
+        
+        return appEvent(at: lastUsedPosition ?? 0)
+    }
+
 }
 
 public
@@ -35,6 +49,19 @@ extension UIControl.State {
         guard value != 0 else { return nil }
         
         return UIControl.State(rawValue: value)
+    }
+    
+    private
+    static var lastUsedPosition: UInt?
+    
+    static func nextAvailableAppState() -> UIControl.State? {
+        if let p = lastUsedPosition {
+            lastUsedPosition = p + 1
+        } else {
+            lastUsedPosition = 0
+        }
+
+        return lastUsedPosition.flatMap(appState(at:))
     }
 }
 
