@@ -24,6 +24,7 @@ class AugmentedButtonTests: XCTestCase {
             ("testCustomProperties", testCustomProperties),
             ("testNormalValues", testNormalValues),
             ("testCustomKeyPaths", testCustomKeyPaths),
+            ("testNewUIControlEventsAreDistinct", testNewUIControlEventsAreDistinct),
         ]
     }
 
@@ -234,5 +235,9 @@ class AugmentedButtonTests: XCTestCase {
         sut.isSelected = false
         XCTAssertEqual(sut.currentValueForKeyPath(\.layer.opacity), 1)
 
+    }
+    
+    func testNewUIControlEventsAreDistinct() {
+        XCTAssertNotEqual(UIControl.Event.stateChanged.rawValue, UIControl.Event.longPress.rawValue)
     }
 }
