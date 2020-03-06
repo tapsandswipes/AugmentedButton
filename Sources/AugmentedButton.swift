@@ -9,6 +9,11 @@
 import UIKit
 
 public
+extension UIControl.Event {
+    static let longPress: UIControl.Event = UIControl.Event.nextAvailableAppEvent()
+}
+
+public
 enum AugmentedButtonError: Error {
     case undefinedKey
     case keyManagedInSuper
@@ -90,6 +95,29 @@ class AugmentedButton: StateObservableButton {
         return valueForKeyPath(keyPath, for: state) ?? valueForKeyPath(keyPath, for: .normal) ?? self[keyPath: keyPath]
     }
 
+    open
+    override func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControl.Event) {
+        super.addTarget(target, action: action, for: controlEvents)
+        
+        // Only install long press gesture recognizer if listening for .longPress events
+        if controlEvents.contains(.longPress) {
+            // If already has a long press gesture recognizer configure it
+            if let g = gestureRecognizers?.first(where: { $0 is UILongPressGestureRecognizer}) {
+                g.removeTarget(self, action: #selector(didLongPress(_:)))
+                g.addTarget(self, action: #selector(didLongPress(_:)))
+            } else {
+                addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(didLongPress(_:))))
+            }
+        }
+    }
+    
+    @IBAction private
+    func didLongPress(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            sendActions(for: .longPress)
+        }
+    }
+    
 }
 
 // MARK: Overrides
