@@ -48,6 +48,20 @@ func setActions(_ block: @escaping (AugmentedButton) -> Void, named name: String
 Always set actions for `.normal` state if you want them to be reset
 
 
+#### Add target/actions for long press and state changes on button
+
+Support for two new `UIControl.Event` values added:
+
+* `.stateChanged` for any change in the button state property 
+* `.longPress` for long press gestures on button
+
+Use the standard API for target/actions:
+
+```swift
+augmentedButton.addTarget(self, action: #selector(onLongPress), for: .longPress)
+augmentedButton.addTarget(self, action: #selector(buttonStateChanged(_:)), for: .stateChanged)
+
+```
 ## Requirements
 
 * iOS 8.0+
@@ -79,14 +93,14 @@ github "tapsandswipes/AugmentedButton"
 
 #### Via [Swift Package Manager](https://github.com/apple/swift-package-manager)
 
-1. Add `.Package(url: "https://github.com/tapsandswipes/AugmentedButton.git", "1.1.0")` to your `Package.swift` inside `dependencies`:
+1. Add `.Package(url: "https://github.com/tapsandswipes/AugmentedButton.git", "1.3")` to your `Package.swift` inside `dependencies`:
 ```swift
 import PackageDescription
 
 let package = Package(
 	name: "yourapp",
 	dependencies: [
-		.Package(url: "https://github.com/tapsandswipes/AugmentedButton.git", "1.1.0")
+		.Package(url: "https://github.com/tapsandswipes/AugmentedButton.git", "1.3")
  	]
 )
 ```
