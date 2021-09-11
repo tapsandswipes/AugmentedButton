@@ -105,7 +105,7 @@ class AugmentedButtonTests: XCTestCase {
         XCTAssertTrue(called, "block not called")
     }
     
-    func testValueForStates() {
+    func testValueForStates() throws {
         
         let values: [(UIControl.State, CGFloat)] = [(.normal, 1), (.selected, 2), (.highlighted, 3), (.disabled, 4)]
         
@@ -113,10 +113,9 @@ class AugmentedButtonTests: XCTestCase {
             sut.setValue(value, forKeyPath: \.borderWidth, for: state)
         }
         
-        values.forEach { (state, value) in
-            let v = sut.valueForKeyPath(\.borderWidth, for: state)
-            XCTAssertNotNil(v)
-            XCTAssertEqual(v!, value)
+        try values.forEach { (state, value) in
+            let v = try XCTUnwrap(sut.valueForKeyPath(\.borderWidth, for: state))
+            XCTAssertEqual(v, value)
         }
         
     }
