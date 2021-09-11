@@ -25,6 +25,7 @@ class AugmentedButtonTests: XCTestCase {
             ("testNormalValues", testNormalValues),
             ("testCustomKeyPaths", testCustomKeyPaths),
             ("testNewUIControlEventsAreDistinct", testNewUIControlEventsAreDistinct),
+            ("testSubclassProperties", testSubclassProperties),
         ]
     }
 
@@ -239,4 +240,24 @@ class AugmentedButtonTests: XCTestCase {
     func testNewUIControlEventsAreDistinct() {
         XCTAssertNotEqual(UIControl.Event.stateChanged.rawValue, UIControl.Event.longPress.rawValue)
     }
+    
+    func testSubclassProperties() throws {
+        let sut: TestButton = TestButton(type: .custom)
+        sut.setValue(true, forKeyPath: \TestButton.customProperty, for: .selected)
+
+        XCTAssertEqual(sut.currentValueForKeyPath(\TestButton.customProperty), false)
+        
+        sut.isSelected = true
+        XCTAssertEqual(sut.currentValueForKeyPath(\TestButton.customProperty), true)
+
+        sut.isSelected = false
+        XCTAssertEqual(sut.currentValueForKeyPath(\TestButton.customProperty), false)
+
+    }
+}
+
+
+class TestButton: AugmentedButton {
+    @objc
+    var customProperty: Bool = false
 }

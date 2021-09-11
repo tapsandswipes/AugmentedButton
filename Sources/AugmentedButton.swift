@@ -61,29 +61,37 @@ class AugmentedButton: StateObservableButton {
     
     private
     var stateBlocks: [UIControl.State: [String: [Actions]]] = [:]
-    
+        
     open
-    func setValue<Value>(_ value: Value, forKeyPath keyPath: ReferenceWritableKeyPath<AugmentedButton, Value>, for state: UIControl.State) {
-        let actions: Actions = { button in
+    func setValue<Root: AugmentedButton, Value>(_ value: Value, forKeyPath keyPath: ReferenceWritableKeyPath<Root, Value>, for state: UIControl.State) {
+        precondition(self is Root, "keyPath must be relative to Self")
+        
+        let actions: Actions = { b in
+            guard let button = b as? Root else { return }
             button[keyPath: keyPath] = value
         }
-
+        
         setActions(actions, named: keyPath.ab_stateBlockKey, for: state)
         
         // Set value for .normal state if none exist.
         if state != .normal && self.state == .normal {
-            guard actionsForKeyPath(keyPath, for: .normal) == nil else { return }
+            guard
+                let button = self as? Root,
+                actionsForKeyPath(keyPath, for: .normal) == nil
+            else { return }
             
-            setValue(self[keyPath: keyPath], forKeyPath: keyPath, for: .normal)
+            setValue(button[keyPath: keyPath], forKeyPath: keyPath, for: .normal)
         }
 
     }
     
     open
-    func valueForKeyPath<Value>(_ keyPath: KeyPath<AugmentedButton, Value>, for state: UIControl.State) -> Value? {
+    func valueForKeyPath<Root: AugmentedButton, Value>(_ keyPath: KeyPath<Root, Value>, for state: UIControl.State) -> Value? {
+        precondition(self is Root, "keyPath must be relative to Self")
+
         guard let block: Actions = actionsForKeyPath(keyPath, for: state) else { return nil }
         
-        let b = AugmentedButton(type: .custom)
+        let b = Root(type: .custom)
         
         block(b)
         
@@ -91,8 +99,10 @@ class AugmentedButton: StateObservableButton {
     }
 
     open
-    func currentValueForKeyPath<Value>(_ keyPath: KeyPath<AugmentedButton, Value>) -> Value {
-        return valueForKeyPath(keyPath, for: state) ?? valueForKeyPath(keyPath, for: .normal) ?? self[keyPath: keyPath]
+    func currentValueForKeyPath<Root: AugmentedButton, Value>(_ keyPath: KeyPath<Root, Value>) -> Value {
+        precondition(self is Root, "keyPath must be relative to Self")
+
+        return valueForKeyPath(keyPath, for: state) ?? valueForKeyPath(keyPath, for: .normal) ?? (self as! Root)[keyPath: keyPath]
     }
 
     open
@@ -149,7 +159,7 @@ extension AugmentedButton {
 private
 extension AugmentedButton {
 
-    func actionsForKeyPath<Value>(_ keyPath: KeyPath<AugmentedButton, Value>, for state: UIControl.State) -> Actions? {
+    func actionsForKeyPath<Root: AugmentedButton, Value>(_ keyPath: KeyPath<Root, Value>, for state: UIControl.State) -> Actions? {
         return stateBlocks[state]?[keyPath.ab_stateBlockKey]?.first
     }
     
@@ -162,7 +172,7 @@ extension AugmentedButton {
 
 
 private
-extension KeyPath {
+extension KeyPath where Root: AugmentedButton {
     var ab_stateBlockKey: String {
         return NSExpression(forKeyPath: self).keyPath
     }
