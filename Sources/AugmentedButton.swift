@@ -112,14 +112,24 @@ class AugmentedButton: StateObservableButton {
         // Only install long press gesture recognizer if listening for .longPress events
         if controlEvents.contains(.longPress) {
             // If already has a long press gesture recognizer configure it
-            if let g = gestureRecognizers?.first(where: { $0 is UILongPressGestureRecognizer}) {
+            if let g = gestureRecognizers?.first(where: { $0 is UILongPressGestureRecognizer }) as? UILongPressGestureRecognizer {
                 g.removeTarget(self, action: #selector(didLongPress(_:)))
                 g.addTarget(self, action: #selector(didLongPress(_:)))
+                g.minimumPressDuration = longPressMinimumPressDuration
             } else {
-                addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(didLongPress(_:))))
+                addGestureRecognizer(longPressGesture)
+                longPressGesture.minimumPressDuration = longPressMinimumPressDuration
             }
         }
     }
+    
+    public var longPressMinimumPressDuration: TimeInterval = 0.5 {
+        didSet {
+            longPressGesture.minimumPressDuration = longPressMinimumPressDuration
+        }
+    }
+    
+    private lazy var longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(didLongPress(_:)))
     
     @IBAction private
     func didLongPress(_ sender: UILongPressGestureRecognizer) {
