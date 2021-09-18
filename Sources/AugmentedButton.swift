@@ -117,19 +117,34 @@ class AugmentedButton: StateObservableButton {
                 g.addTarget(self, action: #selector(didLongPress(_:)))
                 g.minimumPressDuration = longPressMinimumPressDuration
             } else {
-                addGestureRecognizer(longPressGesture)
-                longPressGesture.minimumPressDuration = longPressMinimumPressDuration
+                addGestureRecognizer(_longPressGesture)
+                _longPressGesture.minimumPressDuration = longPressMinimumPressDuration
             }
+        }
+    }
+    
+    open override func removeTarget(_ target: Any?, action: Selector?, for controlEvents: UIControl.Event) {
+        super.removeTarget(target, action: action, for: controlEvents)
+        
+        if !allControlEvents.contains(.longPress) {
+            removeGestureRecognizer(_longPressGesture)
         }
     }
     
     public var longPressMinimumPressDuration: TimeInterval = 0.5 {
         didSet {
-            longPressGesture.minimumPressDuration = longPressMinimumPressDuration
+            _longPressGesture.minimumPressDuration = longPressMinimumPressDuration
         }
     }
     
-    private lazy var longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(didLongPress(_:)))
+    public var longPressGesture: UILongPressGestureRecognizer? {
+        guard allControlEvents.contains(.longPress) else { return nil }
+
+        return _longPressGesture
+    }
+    
+    private lazy var _longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(didLongPress(_:)))
+    
     
     @IBAction private
     func didLongPress(_ sender: UILongPressGestureRecognizer) {
