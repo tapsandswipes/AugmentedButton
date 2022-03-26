@@ -62,6 +62,9 @@ augmentedButton.addTarget(self, action: #selector(onLongPress), for: .longPress)
 augmentedButton.addTarget(self, action: #selector(buttonStateChanged(_:)), for: .stateChanged)
 
 ```
+
+You can see all public API [here](https://tapsandswipes.github.io/AugmentedButton/documentation/augmentedbutton/)
+
 ## Requirements
 
 * iOS 8.0+
