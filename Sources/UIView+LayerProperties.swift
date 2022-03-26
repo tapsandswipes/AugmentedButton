@@ -10,37 +10,22 @@
 import UIKit
 
 extension UIView {
-    @IBInspectable public
+    @IBInspectable open
     var borderColor: UIColor? {
-        set {
-            layer.borderColor = newValue?.cgColor
-        }
-        
-        get {
-            return layer.borderColor.map(UIColor.init)
-        }
+        set { layer.borderColor = newValue?.cgColor }
+        get { layer.borderColor.map(UIColor.init) }
     }
 
-    @IBInspectable public
+    @IBInspectable open
     var borderWidth: CGFloat {
-        set {
-            layer.borderWidth = newValue
-        }
-        
-        get {
-            return layer.borderWidth
-        }
+        set { layer.borderWidth = newValue }
+        get { layer.borderWidth }
     }
 
-    @IBInspectable public
+    @IBInspectable open
     var cornerRadius: CGFloat {
-        set {
-            layer.cornerRadius = newValue
-        }
-        
-        get {
-            return layer.cornerRadius
-        }
+        set { layer.cornerRadius = newValue }
+        get { layer.cornerRadius }
     }
 
 }
